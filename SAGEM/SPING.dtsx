@@ -1,0 +1,1723 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2022 10:18:59 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JISPH5E"
+  DTS:CreatorName="DESKTOP-JISPH5E\Faouzi"
+  DTS:DTSID="{AF02BE2C-40C9-42FF-845F-79873CA3D1BA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="SPING"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{65574EF3-3D8B-4CC1-B95D-FBB0A5DDEBD9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5BB61989-0576-4872-A795-AC6670660680}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\Faouzi\SPIReport-NG.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SAGEM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB0877C4-009F-4D22-AA4F-A0330F292F7B}"
+      DTS:ObjectName="LocalHost.SAGEM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SAGEM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.sagem.root]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{9DF7405B-3429-463C-A395-88024BF06325}"
+      DTS:ObjectName="localhost.sagem.root">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=root;database=sagem;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SPI_NG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{5D827D40-125F-4283-AD2B-EAD9A9F3A06B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SPI_NG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SPI_NG\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Machine_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Machine_Name"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine_Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[JOB Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JOB Name"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[LOT]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LOT"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Top / Bottom]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Top / Bottom"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top / Bottom]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Pad Result]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pad Result"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Result]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Defect Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Defect Type"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Defect Type]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Part Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Part Name"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Part Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Package Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Package Name"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Package Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Component Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Component Name"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Component Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[PCB Result]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PCB Result"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données].Columns[Area]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Area"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine_Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine_Name]"
+                      name="Copie de Machine_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine_Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de JOB Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de JOB Name]"
+                      name="Copie de JOB Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de LOT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de LOT]"
+                      name="Copie de LOT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top / Bottom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top / Bottom]"
+                      name="Copie de Top / Bottom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top / Bottom]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pad Result]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pad Result]"
+                      name="Copie de Pad Result"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Result]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Defect Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Defect Type]"
+                      name="Copie de Defect Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Defect Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Part Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Part Name]"
+                      name="Copie de Part Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Part Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Package Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Package Name]"
+                      name="Copie de Package Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Package Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Component Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Component Name]"
+                      name="Copie de Component Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Component Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]"
+                      name="Copie de PCB Result"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Area]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Area]"
+                      name="Copie de Area"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SPI_NG\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SPI_NG\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[SA].[SPIReport-NG]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SPI_NG\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[JOB ID]"
+                      cachedDataType="i4"
+                      cachedName="JOB ID"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JOB ID]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB ID]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Array ID]"
+                      cachedDataType="i4"
+                      cachedName="Array ID"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Array ID]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Array ID]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Panel Index]"
+                      cachedDataType="i4"
+                      cachedName="Panel Index"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Panel Index]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Panel Index]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[SizeX]"
+                      cachedDataType="r4"
+                      cachedName="SizeX"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SizeX]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeX]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[SizeY]"
+                      cachedDataType="r4"
+                      cachedName="SizeY"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SizeY]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeY]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pin Number]"
+                      cachedDataType="i4"
+                      cachedName="Pin Number"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pin Number]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pin Number]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection Time]"
+                      cachedDataType="i4"
+                      cachedName="Inspection Time"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Time]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection Start]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection Start"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Start]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection End]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection End"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection End]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Machine_Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Machine_Name"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine_Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de JOB Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de JOB Name"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JOB Name]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de JOB Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de LOT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de LOT"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Lot]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de LOT]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Top / Bottom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Top / Bottom"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Top/Bottom]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top / Bottom]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de PCB Result]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de PCB Result"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PCB Result]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Defect Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Defect Type"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Defect Type]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Defect Type]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Part Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Part Name"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Part Name]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Part Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Package Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Package Name"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Package Name]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Package Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Component Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Component Name"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Component Name]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Component Name]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pad Id]"
+                      cachedDataType="i4"
+                      cachedName="Pad Id"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pad Id]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Id]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[OffsetY(mm)]"
+                      cachedDataType="r4"
+                      cachedName="OffsetY(mm)"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OffsetY#(tab)(mm)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetY(mm)]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Area(um)]"
+                      cachedDataType="r4"
+                      cachedName="Area(um)"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Area#(tab)(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area(um)]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[OffsetX(mm)]"
+                      cachedDataType="r4"
+                      cachedName="OffsetX(mm)"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OffsetX#(tab)(mm)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetX(mm)]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Height(um)]"
+                      cachedDataType="r4"
+                      cachedName="Height(um)"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Height#(tab)(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Height(um)]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Volume(um)]"
+                      cachedDataType="r4"
+                      cachedName="Volume(um)"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Volume#(tab)(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume(um)]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Volume]"
+                      cachedDataType="r4"
+                      cachedName="Volume"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Volume#(tab)(%)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Area]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Area"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Area#(tab)(%)]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Area]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Pad Result]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Pad Result"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pad Result]"
+                      lineageId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pad Result]" />
+                    <inputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_Report_NG]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Machine Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JOB ID]"
+                      dataType="i4"
+                      name="JOB ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[JOB Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JOB Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Barcode ID]"
+                      dataType="i4"
+                      name="Barcode ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Lot]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Lot" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Top/Bottom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Top/Bottom" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PCB Result]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PCB Result" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Array ID]"
+                      dataType="i4"
+                      name="Array ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Panel Index]"
+                      dataType="i4"
+                      name="Panel Index" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pad Id]"
+                      dataType="i4"
+                      name="Pad Id" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Volume#(tab)(%)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Volume#(tab)(%)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Volume#(tab)(um)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Volume#(tab)(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Height#(tab)(um)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Height#(tab)(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Area#(tab)(%)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Area#(tab)(%)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Area#(tab)(um)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Area#(tab)(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OffsetX#(tab)(mm)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OffsetX#(tab)(mm)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[OffsetY#(tab)(mm)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OffsetY#(tab)(mm)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SizeX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SizeX" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[SizeY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SizeY" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pin Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pin Number" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pad Result]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pad Result" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Defect Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Defect Type" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Part Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Part Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Package Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Package Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Component Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Component Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Time]"
+                      dataType="i4"
+                      name="Inspection Time" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      name="Inspection Start" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      name="Inspection End" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_Report_NG]"
+                      dataType="i4"
+                      name="id_Report_NG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SPI_NG\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SPI_NG\Source ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Source ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT id, `#`, Machine_Name, `JOB ID`, `JOB Name`, LOT, `Top / Bottom`, `PCB Result`, `Array ID`, `Panel Index`, `Pad Id`, Volume, `Volume(um)`, `Height(um)`, Area, `Area(um)`, `OffsetX(mm)`, `OffsetY(mm)`, SizeX, SizeY, `Pin Number`, `Pad Result`, 
+                  `Defect Type`, `Part Name`, `Package Name`, `Component Name`, `Inspection Time`, `Inspection Start`, `Inspection End`
+FROM     spi_report_ng</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SPI_NG\Source ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.sagem.root]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.sagem.root]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[#]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[#]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[#]"
+                      name="#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine_Name]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine_Name]"
+                      name="Machine_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[JOB ID]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB ID]"
+                      name="JOB ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[JOB Name]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[JOB Name]"
+                      name="JOB Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LOT]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]"
+                      name="LOT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top / Bottom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Top / Bottom]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top / Bottom]"
+                      name="Top / Bottom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[PCB Result]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]"
+                      name="PCB Result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Array ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Array ID]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Array ID]"
+                      name="Array ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Panel Index]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Panel Index]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Panel Index]"
+                      name="Panel Index"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pad Id]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Id]"
+                      name="Pad Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Volume]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume]"
+                      name="Volume"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume(um)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Volume(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Volume(um)]"
+                      name="Volume(um)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Height(um)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Height(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Height(um)]"
+                      name="Height(um)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Area]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area]"
+                      name="Area"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area(um)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Area(um)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Area(um)]"
+                      name="Area(um)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetX(mm)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[OffsetX(mm)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetX(mm)]"
+                      name="OffsetX(mm)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetY(mm)]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[OffsetY(mm)]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[OffsetY(mm)]"
+                      name="OffsetY(mm)"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeX]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[SizeX]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeX]"
+                      name="SizeX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeY]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[SizeY]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[SizeY]"
+                      name="SizeY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pin Number]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pin Number]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pin Number]"
+                      name="Pin Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Result]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pad Result]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pad Result]"
+                      name="Pad Result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Defect Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Defect Type]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Defect Type]"
+                      name="Defect Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Part Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Part Name]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Part Name]"
+                      name="Part Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Package Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Package Name]"
+                      length="255"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Package Name]"
+                      name="Package Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Component Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Component Name]"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Component Name]"
+                      name="Component Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Time]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]"
+                      name="Inspection Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Start]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]"
+                      name="Inspection Start"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection End]"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]"
+                      name="Inspection End"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[#]"
+                      dataType="i4"
+                      name="#" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Machine_Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[JOB ID]"
+                      dataType="i4"
+                      name="JOB ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[JOB Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="JOB Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LOT]"
+                      dataType="wstr"
+                      length="50"
+                      name="LOT" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Top / Bottom]"
+                      dataType="wstr"
+                      length="50"
+                      name="Top / Bottom" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[PCB Result]"
+                      dataType="wstr"
+                      length="50"
+                      name="PCB Result" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Array ID]"
+                      dataType="i4"
+                      name="Array ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Panel Index]"
+                      dataType="i4"
+                      name="Panel Index" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pad Id]"
+                      dataType="i4"
+                      name="Pad Id" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Volume]"
+                      dataType="r4"
+                      name="Volume" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Volume(um)]"
+                      dataType="r4"
+                      name="Volume(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Height(um)]"
+                      dataType="r4"
+                      name="Height(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Area]"
+                      dataType="wstr"
+                      length="50"
+                      name="Area" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Area(um)]"
+                      dataType="r4"
+                      name="Area(um)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[OffsetX(mm)]"
+                      dataType="r4"
+                      name="OffsetX(mm)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[OffsetY(mm)]"
+                      dataType="r4"
+                      name="OffsetY(mm)" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[SizeX]"
+                      dataType="r4"
+                      name="SizeX" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[SizeY]"
+                      dataType="r4"
+                      name="SizeY" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pin Number]"
+                      dataType="i4"
+                      name="Pin Number" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pad Result]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pad Result" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Defect Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Defect Type" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Part Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Part Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Package Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Package Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Component Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Component Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Time]"
+                      dataType="i4"
+                      name="Inspection Time" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      name="Inspection Start" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      name="Inspection End" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[#]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[#]"
+                      name="#" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine_Name]"
+                      name="Machine_Name" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[JOB ID]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[JOB ID]"
+                      name="JOB ID" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[JOB Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[JOB Name]"
+                      name="JOB Name" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LOT]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LOT]"
+                      name="LOT" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Top / Bottom]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Top / Bottom]"
+                      name="Top / Bottom" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[PCB Result]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[PCB Result]"
+                      name="PCB Result" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Array ID]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Array ID]"
+                      name="Array ID" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Panel Index]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Panel Index]"
+                      name="Panel Index" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pad Id]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pad Id]"
+                      name="Pad Id" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Volume]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Volume]"
+                      name="Volume" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Volume(um)]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Volume(um)]"
+                      name="Volume(um)" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Height(um)]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Height(um)]"
+                      name="Height(um)" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Area]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Area]"
+                      name="Area" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Area(um)]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Area(um)]"
+                      name="Area(um)" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[OffsetX(mm)]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[OffsetX(mm)]"
+                      name="OffsetX(mm)" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[OffsetY(mm)]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[OffsetY(mm)]"
+                      name="OffsetY(mm)" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[SizeX]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[SizeX]"
+                      name="SizeX" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[SizeY]"
+                      dataType="r4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[SizeY]"
+                      name="SizeY" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pin Number]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pin Number]"
+                      name="Pin Number" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pad Result]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pad Result]"
+                      name="Pad Result" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Defect Type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Defect Type]"
+                      name="Defect Type" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Part Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Part Name]"
+                      name="Part Name" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Package Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Package Name]"
+                      name="Package Name" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Component Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Component Name]"
+                      name="Component Name" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Time]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Time]"
+                      name="Inspection Time" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Start]"
+                      name="Inspection Start" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection End]"
+                      name="Inspection End" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_NG\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SPI_NG.Paths[Sortie de conversion de données]"
+              endId="Package\SPI_NG\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\SPI_NG\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\SPI_NG.Paths[Sortie de source ADO NET]"
+              endId="Package\SPI_NG\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source ADO NET"
+              startId="Package\SPI_NG\Source ADO NET.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{BF29C1DE-E589-4996-9409-8B8843708117}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB0877C4-009F-4D22-AA4F-A0330F292F7B}"
+          SQLTask:SqlStatementSource="truncate table [SA].[SPIReport-NG]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{CE025CDD-2E36-4CA3-A3BD-0AF9F9EFF227}"
+      DTS:From="Package\vider la table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\SPI_NG" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="114.4,41.6"
+          Id="Package\SPI_NG"
+          TopLeft="367.857149121713,165.176472904773" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\vider la table"
+          TopLeft="88.571430079791,61.9411773392899" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="158.171430079791,103.54117733929">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="266.885719041922,61.635295565483"
+              Start="0,0"
+              End="266.885719041922,54.135295565483">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8176477827415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8176477827415"
+                    Point2="0,30.8176477827415"
+                    Point3="4,30.8176477827415" />
+                  <mssgle:LineSegment
+                    End="262.885719041922,30.8176477827415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="262.885719041922,30.8176477827415"
+                    Point2="266.885719041922,30.8176477827415"
+                    Point3="266.885719041922,34.8176477827415" />
+                  <mssgle:LineSegment
+                    End="266.885719041922,54.135295565483" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SPI_NG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SPI_NG\Destination OLE DB"
+          TopLeft="440.714293219605,169.000002370161" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\SPI_NG\Conversion de données"
+          TopLeft="238.571432634275,95.5882366347066" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\SPI_NG\Source ADO NET"
+          TopLeft="24.2857146992975,84.8823541316194" />
+        <EdgeLayout
+          Id="Package\SPI_NG.Paths[Sortie de source ADO NET]"
+          TopLeft="181.885714699297,105.682354131619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.6857179349779,10.7058825030872"
+              Start="0,0"
+              End="49.1857179349779,10.7058825030872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.3428589674889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.3428589674889,0"
+                    Point2="28.3428589674889,0"
+                    Point3="28.3428589674889,4" />
+                  <mssgle:LineSegment
+                    End="28.3428589674889,6.7058825030872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.3428589674889,6.7058825030872"
+                    Point2="28.3428589674889,10.7058825030872"
+                    Point3="32.3428589674889,10.7058825030872" />
+                  <mssgle:LineSegment
+                    End="49.1857179349779,10.7058825030872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SPI_NG.Paths[Sortie de conversion de données]"
+          TopLeft="332.571432634275,137.188236634707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="193.34286058533,31.8117657354546"
+              Start="0,0"
+              End="193.34286058533,24.3117657354546">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9058828677273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9058828677273"
+                    Point2="0,15.9058828677273"
+                    Point3="4,15.9058828677273" />
+                  <mssgle:LineSegment
+                    End="189.34286058533,15.9058828677273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="189.34286058533,15.9058828677273"
+                    Point2="193.34286058533,15.9058828677273"
+                    Point3="193.34286058533,19.9058828677273" />
+                  <mssgle:LineSegment
+                    End="193.34286058533,24.3117657354546" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SPI_NG\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SPI_NG\Source ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

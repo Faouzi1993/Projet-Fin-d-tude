@@ -1,0 +1,2027 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2022 11:24:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JISPH5E"
+  DTS:CreatorName="DESKTOP-JISPH5E\Faouzi"
+  DTS:DTSID="{DB3A22A0-CFD4-491B-92AA-644F9CBA0AB4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="AOIdetail"
+  DTS:PackageType="5"
+  DTS:VersionBuild="95"
+  DTS:VersionGUID="{D13426A7-E0C9-4376-ADE4-0686DBFFCE2B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SAGEM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{90920ACA-ECB8-4D3D-B31D-DEFFFF43BFE2}"
+      DTS:ObjectName="LocalHost.SAGEM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SAGEM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.sagem.root]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{637B32BB-BD5B-43EC-84E8-04D35FEB43E1}"
+      DTS:ObjectName="localhost.sagem.root">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=root;database=sagem;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\AOI_detail"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{79BB9084-26C7-4BDF-AF6A-604E4D1D65FB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="AOI_detail"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\AOI_detail.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{79D39F58-E14E-47DD-A69C-699F3C55E45A}"
+          DTS:EventID="721420331"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Propriété de propagation de l'événement"
+              DTS:DTSID="{26E7B9B0-3641-4BD8-BE2D-383756759266}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\AOI_detail.EventHandlers[OnError]\Tâche d'exécution de requêtes SQL"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tâche d'exécution de requêtes SQL"
+              DTS:DTSID="{703D1C86-E4DA-45B1-A56B-17F1B8866C3E}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Tâche d'exécution de requêtes SQL"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{90920ACA-ECB8-4D3D-B31D-DEFFFF43BFE2}" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::SourceName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="System::ErrorCode"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="3"
+                    SQLTask:DtsVariableName="System::ErrorDescription"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\AOI_detail.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{2021BAE7-7306-4B7B-AD50-5BA94BAFB2B8}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="Propriété de propagation de l'événement"
+              DTS:DTSID="{F373190B-A482-48C4-9028-0FC2C6ED0716}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\AOI_detail\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Line]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Line"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Line]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Machine Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Machine Name"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Lane]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Lane"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Lane]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Job Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Job Name"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Barcode ID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Barcode ID"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Barcode ID]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Top/Bottom]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Top/Bottom"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top/Bottom]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[PCB Result]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PCB Result"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Pass Component %]"
+                      cachedDataType="r4"
+                      cachedName="Pass Component %"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[False Call Component %]"
+                      cachedDataType="r4"
+                      cachedName="False Call Component %"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[NG Component %]"
+                      cachedDataType="r4"
+                      cachedName="NG Component %"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Good Component %]"
+                      cachedDataType="r4"
+                      cachedName="Good Component %"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Inspection Start]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection Start"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Inspection End]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection End"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données].Columns[Vendor Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Vendor Name"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Vendor Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]"
+                      name="Copie de Machine Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Lane]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Lane]"
+                      name="Copie de Lane"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Lane]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]"
+                      name="Copie de Job Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Barcode ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Barcode ID]"
+                      name="Copie de Barcode ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Barcode ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top/Bottom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top/Bottom]"
+                      name="Copie de Top/Bottom"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top/Bottom]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]"
+                      name="Copie de PCB Result"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Line]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Line]"
+                      name="Copie de Line"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Line]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Component %]"
+                      name="Copie de Pass Component %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de False Call Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de False Call Component %]"
+                      name="Copie de False Call Component %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Component %]"
+                      name="Copie de NG Component %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Component %]"
+                      name="Copie de Good Component %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Inspection Start]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Inspection Start]"
+                      name="Copie de Inspection Start"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Inspection End]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Inspection End]"
+                      name="Copie de Inspection End"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Vendor Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Vendor Name]"
+                      name="Copie de Vendor Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Vendor Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\AOI_detail\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AOI_detail\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[SA].[AOI-PCB-detai]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AOI_detail\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Job ID]"
+                      cachedDataType="i4"
+                      cachedName="Job ID"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job ID]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Board ID]"
+                      cachedDataType="i4"
+                      cachedName="Board ID"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Board ID]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Board ID]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[LOT]"
+                      cachedDataType="i4"
+                      cachedName="LOT"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LOT]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total Array]"
+                      cachedDataType="i4"
+                      cachedName="Total Array"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Good Array]"
+                      cachedDataType="i4"
+                      cachedName="Good Array"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass Array]"
+                      cachedDataType="i4"
+                      cachedName="Pass Array"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[False Call Array]"
+                      cachedDataType="i4"
+                      cachedName="False Call Array"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Array]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG Array]"
+                      cachedDataType="i4"
+                      cachedName="NG Array"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total Component]"
+                      cachedDataType="i4"
+                      cachedName="Total Component"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Component]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Good Component]"
+                      cachedDataType="i4"
+                      cachedName="Good Component"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass Component]"
+                      cachedDataType="i4"
+                      cachedName="Pass Component"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[False Call Component]"
+                      cachedDataType="i4"
+                      cachedName="False Call Component"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG Component]"
+                      cachedDataType="i4"
+                      cachedName="NG Component"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Opportunity Defect Count]"
+                      cachedDataType="i4"
+                      cachedName="Opportunity Defect Count"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Opportunity Defect Count]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Defect Count]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Opportunity Total Count]"
+                      cachedDataType="i4"
+                      cachedName="Opportunity Total Count"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Opportunity Total Count]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Total Count]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection Time]"
+                      cachedDataType="i4"
+                      cachedName="Inspection Time"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Time]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection Start]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection Start"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Start]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Inspection End]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Inspection End"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection End]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Line]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Line"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Line]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Line]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Machine Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Machine Name"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Lane]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Lane"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Lane]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Lane]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Job Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Job Name"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job Name]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Barcode ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Barcode ID"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Barcode ID]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Barcode ID]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Top/Bottom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Top/Bottom"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Top/Bottom]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Top/Bottom]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de PCB Result]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de PCB Result"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PCB Result]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de PCB Result]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Good Component %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Good Component %"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Component %]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Pass Component %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Pass Component %"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Component %]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de False Call Component %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de False Call Component %"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Component %]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de False Call Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de NG Component %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de NG Component %"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Component %]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Component %]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Vendor Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Vendor Name"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Vendor Name]"
+                      lineageId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Vendor Name]" />
+                    <inputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_AOI_PCB]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Line" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Machine Name" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Lane]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Lane" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job ID]"
+                      dataType="i4"
+                      name="Job ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Job Name" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Board ID]"
+                      dataType="i4"
+                      name="Board ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Barcode ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Barcode ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[LOT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LOT" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Top/Bottom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Top/Bottom" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[PCB Result]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PCB Result" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Array]"
+                      dataType="i4"
+                      name="Total Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array]"
+                      dataType="i4"
+                      name="Good Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array]"
+                      dataType="i4"
+                      name="Pass Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Array]"
+                      dataType="i4"
+                      name="False Call Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array]"
+                      dataType="i4"
+                      name="NG Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Component]"
+                      dataType="i4"
+                      name="Total Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Component]"
+                      dataType="i4"
+                      name="Good Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Component]"
+                      dataType="i4"
+                      name="Pass Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Component]"
+                      dataType="i4"
+                      name="False Call Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Component]"
+                      dataType="i4"
+                      name="NG Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Good Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pass Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[False Call Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="False Call Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Component %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NG Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Opportunity Defect Count]"
+                      dataType="i4"
+                      name="Opportunity Defect Count" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Opportunity Total Count]"
+                      dataType="i4"
+                      name="Opportunity Total Count" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Time]"
+                      dataType="i4"
+                      name="Inspection Time" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection Start]"
+                      dataType="dbTimeStamp2"
+                      name="Inspection Start"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Inspection End]"
+                      dataType="dbDate"
+                      name="Inspection End" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Review Time]"
+                      dataType="dbDate"
+                      name="Review Time" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Vendor Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Vendor Name" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[User ID]"
+                      dataType="i4"
+                      name="User ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_AOI_PCB]"
+                      dataType="i4"
+                      name="id_AOI_PCB" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AOI_detail\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AOI_detail\Source ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Source ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  `id`, `Line`, `Machine Name`, `Lane`, `Job ID`, `Job Name`, `Board ID`, `Barcode ID`, `LOT`, `Top/Bottom`, `PCB Result`, `Total Array`, `Good Array`, `Pass Array`, `False Call Array`, `NG Array`, `Total Component`, `Good Component`, `Pass Component`, `False Call Component`, `NG Component`, `Good Component %`, `Pass Component %`, `False Call Component %`, `NG Component %`, `Opportunity Defect Count`, `Opportunity Total Count`, `Inspection Time`, `Inspection Start`, `Inspection End`,  `Vendor Name` FROM `aoi_report-pcb_détail`</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AOI_detail\Source ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.sagem.root]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.sagem.root]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Line]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Line]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Line]"
+                      name="Line"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine Name]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]"
+                      name="Machine Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Lane]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Lane]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Lane]"
+                      name="Lane"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job ID]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]"
+                      name="Job ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job Name]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]"
+                      name="Job Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Board ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Board ID]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Board ID]"
+                      name="Board ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Barcode ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Barcode ID]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Barcode ID]"
+                      name="Barcode ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LOT]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[LOT]"
+                      name="LOT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top/Bottom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Top/Bottom]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Top/Bottom]"
+                      name="Top/Bottom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[PCB Result]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[PCB Result]"
+                      name="PCB Result"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]"
+                      name="Total Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]"
+                      name="Good Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]"
+                      name="Pass Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Array]"
+                      name="False Call Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]"
+                      name="NG Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Component]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Component]"
+                      name="Total Component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component]"
+                      name="Good Component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component]"
+                      name="Pass Component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component]"
+                      name="False Call Component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Component]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component]"
+                      name="NG Component"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Component %]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Component %]"
+                      name="Good Component %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Component %]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Component %]"
+                      name="Pass Component %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Component %]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[False Call Component %]"
+                      name="False Call Component %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Component %]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Component %]"
+                      name="NG Component %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Defect Count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Opportunity Defect Count]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Defect Count]"
+                      name="Opportunity Defect Count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Total Count]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Opportunity Total Count]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Opportunity Total Count]"
+                      name="Opportunity Total Count"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Time]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Time]"
+                      name="Inspection Time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Start]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection Start]"
+                      name="Inspection Start"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection End]"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Inspection End]"
+                      name="Inspection End"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Vendor Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Vendor Name]"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Vendor Name]"
+                      name="Vendor Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Line]"
+                      dataType="wstr"
+                      length="50"
+                      name="Line" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Machine Name" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Lane]"
+                      dataType="wstr"
+                      length="50"
+                      name="Lane" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job ID]"
+                      dataType="i4"
+                      name="Job ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Job Name" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Board ID]"
+                      dataType="i4"
+                      name="Board ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Barcode ID]"
+                      dataType="wstr"
+                      length="50"
+                      name="Barcode ID" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[LOT]"
+                      dataType="i4"
+                      name="LOT" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Top/Bottom]"
+                      dataType="wstr"
+                      length="50"
+                      name="Top/Bottom" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[PCB Result]"
+                      dataType="wstr"
+                      length="50"
+                      name="PCB Result" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Array]"
+                      dataType="i4"
+                      name="Total Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array]"
+                      dataType="i4"
+                      name="Good Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array]"
+                      dataType="i4"
+                      name="Pass Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Array]"
+                      dataType="i4"
+                      name="False Call Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array]"
+                      dataType="i4"
+                      name="NG Array" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Component]"
+                      dataType="i4"
+                      name="Total Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Component]"
+                      dataType="i4"
+                      name="Good Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Component]"
+                      dataType="i4"
+                      name="Pass Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Component]"
+                      dataType="i4"
+                      name="False Call Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Component]"
+                      dataType="i4"
+                      name="NG Component" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Component %]"
+                      dataType="r4"
+                      name="Good Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Component %]"
+                      dataType="r4"
+                      name="Pass Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[False Call Component %]"
+                      dataType="r4"
+                      name="False Call Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Component %]"
+                      dataType="r4"
+                      name="NG Component %" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Opportunity Defect Count]"
+                      dataType="i4"
+                      name="Opportunity Defect Count" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Opportunity Total Count]"
+                      dataType="i4"
+                      name="Opportunity Total Count" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Time]"
+                      dataType="i4"
+                      name="Inspection Time" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      name="Inspection Start" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      name="Inspection End" />
+                    <externalMetadataColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Vendor Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Vendor Name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Line]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Line]"
+                      name="Line" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine Name]"
+                      name="Machine Name" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Lane]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Lane]"
+                      name="Lane" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job ID]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job ID]"
+                      name="Job ID" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job Name]"
+                      name="Job Name" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Board ID]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Board ID]"
+                      name="Board ID" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Barcode ID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Barcode ID]"
+                      name="Barcode ID" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LOT]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[LOT]"
+                      name="LOT" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Top/Bottom]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Top/Bottom]"
+                      name="Top/Bottom" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[PCB Result]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[PCB Result]"
+                      name="PCB Result" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Array]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Array]"
+                      name="Total Array" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array]"
+                      name="Good Array" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array]"
+                      name="Pass Array" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Array]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Array]"
+                      name="False Call Array" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array]"
+                      name="NG Array" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Component]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Component]"
+                      name="Total Component" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Component]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Component]"
+                      name="Good Component" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Component]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Component]"
+                      name="Pass Component" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Component]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Component]"
+                      name="False Call Component" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Component]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Component]"
+                      name="NG Component" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Component %]"
+                      dataType="r4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Component %]"
+                      name="Good Component %" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Component %]"
+                      dataType="r4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Component %]"
+                      name="Pass Component %" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Component %]"
+                      dataType="r4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[False Call Component %]"
+                      name="False Call Component %" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Component %]"
+                      dataType="r4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Component %]"
+                      name="NG Component %" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Opportunity Defect Count]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Opportunity Defect Count]"
+                      name="Opportunity Defect Count" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Opportunity Total Count]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Opportunity Total Count]"
+                      name="Opportunity Total Count" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Time]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Time]"
+                      name="Inspection Time" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Start]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection Start]"
+                      name="Inspection Start" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection End]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Inspection End]"
+                      name="Inspection End" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Vendor Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Vendor Name]"
+                      name="Vendor Name" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AOI_detail\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\AOI_detail.Paths[Sortie de conversion de données]"
+              endId="Package\AOI_detail\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\AOI_detail\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\AOI_detail.Paths[Sortie de source ADO NET]"
+              endId="Package\AOI_detail\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source ADO NET"
+              startId="Package\AOI_detail\Source ADO NET.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{DB4EE673-5CC0-4BDE-87C0-DA1B4F7A9425}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{90920ACA-ECB8-4D3D-B31D-DEFFFF43BFE2}"
+          SQLTask:SqlStatementSource="truncate table [SA].[AOI-PCB-detai]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{63CFBCFA-FCAD-434A-B673-2132D9D1738D}"
+      DTS:From="Package\vider la table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\AOI_detail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{47CAF781-0A3C-4FDE-95C2-5C3492AB4BC0}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="Propriété de propagation de l'événement"
+          DTS:DTSID="{5FE65733-D489-4B0A-B2E8-308367AAEFBC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\ErrorLog"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Tâche d'exécution de requêtes SQL"
+          DTS:DTSID="{FF96786B-D116-4B1E-8DDB-10F06469F404}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ErrorLog"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [PackageError] values('"+@[System::PackageID]+"','"+
+@[System::MachineName] +"' ,'"+ @[System::PackageName]+"', '"+
+ @[System::TaskName]+"','"+(DT_WSTR,12)@[System::ErrorCode]
++"', '"+@[System::ErrorDescription] +"'.getdate())"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{90920ACA-ECB8-4D3D-B31D-DEFFFF43BFE2}"
+              SQLTask:SqlStatementSource="INSERT INTO [PackageError] values('{DB3A22A0-CFD4-491B-92AA-644F9CBA0AB4}','DESKTOP-JISPH5E' ,'AOIdetail', 'ErrorLog','0', ''.getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::MachineName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="131"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\AOI_detail"
+          TopLeft="67.1428582862935,152.176472722453" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\vider la table"
+          TopLeft="247.857147078125,64.2352950185228" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="317.457147078125,105.835295018523">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-186.314288791831,46.3411777039302"
+              Start="0,0"
+              End="-186.314288791831,38.8411777039302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1705888519651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1705888519651"
+                    Point2="0,23.1705888519651"
+                    Point3="-4,23.1705888519651" />
+                  <mssgle:LineSegment
+                    End="-182.314288791831,23.1705888519651" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-182.314288791831,23.1705888519651"
+                    Point2="-186.314288791831,23.1705888519651"
+                    Point3="-186.314288791831,27.1705888519651" />
+                  <mssgle:LineSegment
+                    End="-186.314288791831,38.8411777039302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118.4,41.6"
+          Id="Package.EventHandlers[OnError]\ErrorLog"
+          TopLeft="273.571433230322,58.8823537669793" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\AOI_detail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\AOI_detail\Source ADO NET"
+          TopLeft="19.2857146141481,91.0000012762407" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\AOI_detail\Conversion de données"
+          TopLeft="259.285718701324,62.7058832323676" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\AOI_detail\Destination OLE DB"
+          TopLeft="478.571436721451,154.470590401686" />
+        <EdgeLayout
+          Id="Package\AOI_detail.Paths[Sortie de source ADO NET]"
+          TopLeft="176.885714614148,111.800001276241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.4000040871759,-28.2941180438731"
+              Start="0,0"
+              End="74.9000040871759,-28.2941180438731">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.2000020435879,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.2000020435879,0"
+                    Point2="41.2000020435879,0"
+                    Point3="41.2000020435879,-4" />
+                  <mssgle:LineSegment
+                    End="41.2000020435879,-24.2941180438731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.2000020435879,-24.2941180438731"
+                    Point2="41.2000020435879,-28.2941180438731"
+                    Point3="45.2000020435879,-28.2941180438731" />
+                  <mssgle:LineSegment
+                    End="74.9000040871759,-28.2941180438731" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\AOI_detail.Paths[Sortie de conversion de données]"
+          TopLeft="353.285718701324,104.305883232368">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.485718020127,50.1647071693184"
+              Start="0,0"
+              End="210.485718020127,42.6647071693184">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0823535846592" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0823535846592"
+                    Point2="0,25.0823535846592"
+                    Point3="4,25.0823535846592" />
+                  <mssgle:LineSegment
+                    End="206.485718020127,25.0823535846592" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.485718020127,25.0823535846592"
+                    Point2="210.485718020127,25.0823535846592"
+                    Point3="210.485718020127,29.0823535846592" />
+                  <mssgle:LineSegment
+                    End="210.485718020127,42.6647071693184" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\AOI_detail.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="244.8,41.6"
+          Id="Package\AOI_detail.EventHandlers[OnError]\Tâche d'exécution de requêtes SQL"
+          TopLeft="189.666666666667,79.6666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\AOI_detail\Source ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AOI_detail\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

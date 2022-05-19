@@ -1,0 +1,2032 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2022 11:15:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-JISPH5E"
+  DTS:CreatorName="DESKTOP-JISPH5E\Faouzi"
+  DTS:DTSID="{8BF83AEB-1332-4971-A86F-728DA1F3365D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="SPIyeild"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{D7FB3F61-E02B-4E5B-B9B9-F57D83ABAFBE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DW_Sagem]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{61A5142A-25A2-4BD4-A68D-7FEAEA562515}"
+      DTS:ObjectName="LocalHost.DW_Sagem">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DW_Sagem;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SAGEM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{06B204CC-5518-42F8-9B47-CE5F6843C7C5}"
+      DTS:ObjectName="LocalHost.SAGEM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SAGEM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.sagem.root]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{E49780FC-4216-4962-839C-AA836D08500E}"
+      DTS:ObjectName="localhost.sagem.root">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=root;database=sagem;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SPI_yeild"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{DCBADC1C-4DF9-4638-A5D3-74ED3477B644}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SPI_yeild"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SPI_yeild\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Machine Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Machine Name"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Job Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Job Name"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[FPY]"
+                      cachedDataType="r4"
+                      cachedName="FPY"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[FPY]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Yield]"
+                      cachedDataType="r4"
+                      cachedName="Yield"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Yield]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Good PCB %]"
+                      cachedDataType="r4"
+                      cachedName="Good PCB %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Pass PCB %]"
+                      cachedDataType="r4"
+                      cachedName="Pass PCB %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Warning PCB %]"
+                      cachedDataType="r4"
+                      cachedName="Warning PCB %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[NG PCB %]"
+                      cachedDataType="r4"
+                      cachedName="NG PCB %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Good Array %]"
+                      cachedDataType="r4"
+                      cachedName="Good Array %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Pass Array %]"
+                      cachedDataType="r4"
+                      cachedName="Pass Array %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Warning Array %]"
+                      cachedDataType="r4"
+                      cachedName="Warning Array %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[NG Array %]"
+                      cachedDataType="r4"
+                      cachedName="NG Array %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Good Pad %]"
+                      cachedDataType="r4"
+                      cachedName="Good Pad %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Pass Pad %]"
+                      cachedDataType="r4"
+                      cachedName="Pass Pad %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[Warning Pad %]"
+                      cachedDataType="r4"
+                      cachedName="Warning Pad %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données].Columns[NG Pad %]"
+                      cachedDataType="r4"
+                      cachedName="NG Pad %"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad %]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]"
+                      name="Copie de Machine Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]"
+                      name="Copie de Job Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de FPY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de FPY]"
+                      name="Copie de FPY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[FPY]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Yield]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Yield]"
+                      name="Copie de Yield"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Yield]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good PCB %]"
+                      name="Copie de Good PCB %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass PCB %]"
+                      name="Copie de Pass PCB %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning PCB %]"
+                      name="Copie de Warning PCB %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG PCB %]"
+                      name="Copie de NG PCB %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Array %]"
+                      name="Copie de Good Array %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Array %]"
+                      name="Copie de Pass Array %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Array %]"
+                      name="Copie de Warning Array %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Array %]"
+                      name="Copie de NG Array %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Pad %]"
+                      name="Copie de Good Pad %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Pad %]"
+                      name="Copie de Pass Pad %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Pad %]"
+                      name="Copie de Warning Pad %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Pad %]"
+                      name="Copie de NG Pad %"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad %]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SPI_yeild\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[SA].[SPI-yeild]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SPI_yeild\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SAGEM]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG PPM]"
+                      cachedDataType="i4"
+                      cachedName="NG PPM"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PPM]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PPM]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass PPM]"
+                      cachedDataType="i4"
+                      cachedName="Pass PPM"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PPM]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PPM]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total Array]"
+                      cachedDataType="i4"
+                      cachedName="Total Array"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Good Array]"
+                      cachedDataType="i4"
+                      cachedName="Good Array"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass Array]"
+                      cachedDataType="i4"
+                      cachedName="Pass Array"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Warning Array]"
+                      cachedDataType="i4"
+                      cachedName="Warning Array"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG Array]"
+                      cachedDataType="i4"
+                      cachedName="NG Array"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total Pad]"
+                      cachedDataType="i4"
+                      cachedName="Total Pad"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Pad]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Good Pad]"
+                      cachedDataType="i4"
+                      cachedName="Good Pad"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass Pad]"
+                      cachedDataType="i4"
+                      cachedName="Pass Pad"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Warning Pad]"
+                      cachedDataType="i4"
+                      cachedName="Warning Pad"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG Pad]"
+                      cachedDataType="i4"
+                      cachedName="NG Pad"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Machine Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Machine Name"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Machine Name]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Job Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Job Name"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job Name]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Job Name]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Day]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Day"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Day]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Day]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Job ID]"
+                      cachedDataType="i4"
+                      cachedName="Job ID"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job ID]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de FPY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de FPY"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[FPY]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de FPY]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Yield]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Yield"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Yield]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Yield]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total PCB]"
+                      cachedDataType="i4"
+                      cachedName="Total PCB"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total PCB]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Good PCB]"
+                      cachedDataType="i4"
+                      cachedName="Good PCB"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Pass PCB]"
+                      cachedDataType="i4"
+                      cachedName="Pass PCB"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Warning PCB]"
+                      cachedDataType="i4"
+                      cachedName="Warning PCB"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[NG PCB]"
+                      cachedDataType="i4"
+                      cachedName="NG PCB"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Good PCB %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Good PCB %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good PCB %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Pass PCB %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Pass PCB %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PCB %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Warning PCB %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Warning PCB %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning PCB %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de NG PCB %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de NG PCB %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PCB %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG PCB %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Good Array %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Good Array %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Pass Array %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Pass Array %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Warning Array %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Warning Array %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Array %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de NG Array %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de NG Array %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Array %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Good Pad %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Good Pad %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Pad %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Good Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Pass Pad %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Pass Pad %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Pad %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Pass Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de Warning Pad %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de Warning Pad %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Pad %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de Warning Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Copie de NG Pad %]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copie de NG Pad %"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Pad %]"
+                      lineageId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données].Columns[Copie de NG Pad %]" />
+                    <inputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_SPI_Yeild]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Machine Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Machine Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Job Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PPM]"
+                      dataType="i4"
+                      name="NG PPM" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PPM]"
+                      dataType="i4"
+                      name="Pass PPM" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Array]"
+                      dataType="i4"
+                      name="Total Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array]"
+                      dataType="i4"
+                      name="Good Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array]"
+                      dataType="i4"
+                      name="Pass Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Array]"
+                      dataType="i4"
+                      name="Warning Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array]"
+                      dataType="i4"
+                      name="NG Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total Pad]"
+                      dataType="i4"
+                      name="Total Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Pad]"
+                      dataType="i4"
+                      name="Good Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Pad]"
+                      dataType="i4"
+                      name="Pass Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Pad]"
+                      dataType="i4"
+                      name="Warning Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Pad]"
+                      dataType="i4"
+                      name="NG Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Day]"
+                      dataType="dbDate"
+                      name="Day" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Job ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Job ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[FPY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FPY" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Yield]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Yield" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Total PCB]"
+                      dataType="i4"
+                      name="Total PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good PCB]"
+                      dataType="i4"
+                      name="Good PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PCB]"
+                      dataType="i4"
+                      name="Pass PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning PCB]"
+                      dataType="i4"
+                      name="Warning PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PCB]"
+                      dataType="i4"
+                      name="NG PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Good PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pass PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Warning PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG PCB %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NG PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Good Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pass Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Warning Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Array %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NG Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Good Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Good Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Pass Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Pass Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Warning Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Warning Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[NG Pad %]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NG Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[id_SPI_Yeild]"
+                      dataType="i4"
+                      name="id_SPI_Yeild" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SPI_yeild\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SPI_yeild\Source ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Utilise des données issues de SQL Server, OLE DB, ODBC ou Oracle, à l'aide du fournisseur de données .NET Framework correspondant. Utilisez une instruction Transact-SQL pour définir le jeu de résultats. Par exemple, extrayez des données depuis SQL Server à partir du fournisseur de données .NET Framework pour SQL Server."
+              name="Source ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL utilisée par le composant pour extraire des données."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM `spi_yeild`</property>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes externes qui ne sont pas des chaînes peuvent ou non être converties implicitement en chaînes dans les colonnes de sortie."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nom de la table de base de données source."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifier le mode de récupération des informations de colonne externe"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SPI_yeild\Source ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.sagem.root]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.sagem.root]"
+                  description="Gestionnaire de connexions managées"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET]"
+                  name="Sortie de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[#]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[#]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[#]"
+                      name="#"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Day]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Day]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine Name]"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Machine Name]"
+                      name="Machine Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job ID]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job ID]"
+                      name="Job ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job Name]"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Job Name]"
+                      name="Job Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[FPY]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[FPY]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[FPY]"
+                      name="FPY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Yield]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Yield]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Yield]"
+                      name="Yield"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PPM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PPM]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PPM]"
+                      name="NG PPM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PPM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PPM]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PPM]"
+                      name="Pass PPM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total PCB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total PCB]"
+                      name="Total PCB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB]"
+                      name="Good PCB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB]"
+                      name="Pass PCB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB]"
+                      name="Warning PCB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PCB]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB]"
+                      name="NG PCB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good PCB %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good PCB %]"
+                      name="Good PCB %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PCB %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass PCB %]"
+                      name="Pass PCB %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning PCB %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning PCB %]"
+                      name="Warning PCB %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PCB %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG PCB %]"
+                      name="NG PCB %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Array]"
+                      name="Total Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array]"
+                      name="Good Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array]"
+                      name="Pass Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array]"
+                      name="Warning Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array]"
+                      name="NG Array"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Array %]"
+                      name="Good Array %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Array %]"
+                      name="Pass Array %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Array %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Array %]"
+                      name="Warning Array %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Array %]"
+                      name="NG Array %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Pad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Total Pad]"
+                      name="Total Pad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad]"
+                      name="Good Pad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad]"
+                      name="Pass Pad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad]"
+                      name="Warning Pad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Pad]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad]"
+                      name="NG Pad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Pad %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Good Pad %]"
+                      name="Good Pad %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Pad %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Pass Pad %]"
+                      name="Pass Pad %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Pad %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[Warning Pad %]"
+                      name="Warning Pad %"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad %]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Pad %]"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].Columns[NG Pad %]"
+                      name="NG Pad %"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[#]"
+                      dataType="i4"
+                      name="#" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Day]"
+                      dataType="dbTimeStamp"
+                      name="Day" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Machine Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Machine Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job ID]"
+                      dataType="i4"
+                      name="Job ID" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Job Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Job Name" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[FPY]"
+                      dataType="r4"
+                      name="FPY" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Yield]"
+                      dataType="r4"
+                      name="Yield" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PPM]"
+                      dataType="i4"
+                      name="NG PPM" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PPM]"
+                      dataType="i4"
+                      name="Pass PPM" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total PCB]"
+                      dataType="i4"
+                      name="Total PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good PCB]"
+                      dataType="i4"
+                      name="Good PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PCB]"
+                      dataType="i4"
+                      name="Pass PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning PCB]"
+                      dataType="i4"
+                      name="Warning PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PCB]"
+                      dataType="i4"
+                      name="NG PCB" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good PCB %]"
+                      dataType="r4"
+                      name="Good PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass PCB %]"
+                      dataType="r4"
+                      name="Pass PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning PCB %]"
+                      dataType="r4"
+                      name="Warning PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG PCB %]"
+                      dataType="r4"
+                      name="NG PCB %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Array]"
+                      dataType="i4"
+                      name="Total Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array]"
+                      dataType="i4"
+                      name="Good Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array]"
+                      dataType="i4"
+                      name="Pass Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Array]"
+                      dataType="i4"
+                      name="Warning Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array]"
+                      dataType="i4"
+                      name="NG Array" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Array %]"
+                      dataType="r4"
+                      name="Good Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Array %]"
+                      dataType="r4"
+                      name="Pass Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Array %]"
+                      dataType="r4"
+                      name="Warning Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Array %]"
+                      dataType="r4"
+                      name="NG Array %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Total Pad]"
+                      dataType="i4"
+                      name="Total Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Pad]"
+                      dataType="i4"
+                      name="Good Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Pad]"
+                      dataType="i4"
+                      name="Pass Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Pad]"
+                      dataType="i4"
+                      name="Warning Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Pad]"
+                      dataType="i4"
+                      name="NG Pad" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Good Pad %]"
+                      dataType="r4"
+                      name="Good Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Pass Pad %]"
+                      dataType="r4"
+                      name="Pass Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[Warning Pad %]"
+                      dataType="r4"
+                      name="Warning Pad %" />
+                    <externalMetadataColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET].ExternalColumns[NG Pad %]"
+                      dataType="r4"
+                      name="NG Pad %" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[#]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[#]"
+                      name="#" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Day]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Day]"
+                      name="Day" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Machine Name]"
+                      name="Machine Name" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job ID]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job ID]"
+                      name="Job ID" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Job Name]"
+                      name="Job Name" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[FPY]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[FPY]"
+                      name="FPY" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Yield]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Yield]"
+                      name="Yield" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PPM]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PPM]"
+                      name="NG PPM" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PPM]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PPM]"
+                      name="Pass PPM" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total PCB]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total PCB]"
+                      name="Total PCB" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good PCB]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good PCB]"
+                      name="Good PCB" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PCB]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PCB]"
+                      name="Pass PCB" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning PCB]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning PCB]"
+                      name="Warning PCB" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PCB]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PCB]"
+                      name="NG PCB" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good PCB %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good PCB %]"
+                      name="Good PCB %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PCB %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass PCB %]"
+                      name="Pass PCB %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning PCB %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning PCB %]"
+                      name="Warning PCB %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PCB %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG PCB %]"
+                      name="NG PCB %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Array]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Array]"
+                      name="Total Array" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array]"
+                      name="Good Array" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array]"
+                      name="Pass Array" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Array]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Array]"
+                      name="Warning Array" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array]"
+                      name="NG Array" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Array %]"
+                      name="Good Array %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Array %]"
+                      name="Pass Array %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Array %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Array %]"
+                      name="Warning Array %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Array %]"
+                      name="NG Array %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Pad]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Total Pad]"
+                      name="Total Pad" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Pad]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Pad]"
+                      name="Good Pad" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Pad]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Pad]"
+                      name="Pass Pad" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Pad]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Pad]"
+                      name="Warning Pad" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Pad]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Pad]"
+                      name="NG Pad" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Pad %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Good Pad %]"
+                      name="Good Pad %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Pad %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Pass Pad %]"
+                      name="Pass Pad %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Pad %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[Warning Pad %]"
+                      name="Warning Pad %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Pad %]"
+                      dataType="r4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[NG Pad %]"
+                      name="NG Pad %" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie d'erreur de source ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SPI_yeild.Paths[Sortie de conversion de données]"
+              endId="Package\SPI_yeild\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de conversion de données"
+              startId="Package\SPI_yeild\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\SPI_yeild.Paths[Sortie de source ADO NET]"
+              endId="Package\SPI_yeild\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de source ADO NET"
+              startId="Package\SPI_yeild\Source ADO NET.Outputs[Sortie de source ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\vider la table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{ABB0FF84-1B7E-4A7E-AE23-59847223621D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="vider la table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{06B204CC-5518-42F8-9B47-CE5F6843C7C5}"
+          SQLTask:SqlStatementSource="truncate table [SA].[SPI-yeild]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{62EC36CA-49A0-429A-8A47-017E90EBAE77}"
+      DTS:From="Package\vider la table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\SPI_yeild" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\SPI_yeild"
+          TopLeft="216.428575114328,151.411766829375" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\vider la table"
+          TopLeft="245.714289898775,57.352941980824" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="315.314289898775,98.952941980824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.085714784447,52.458824848551"
+              Start="0,0"
+              End="-38.085714784447,44.958824848551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2294124242755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2294124242755"
+                    Point2="0,26.2294124242755"
+                    Point3="-4,26.2294124242755" />
+                  <mssgle:LineSegment
+                    End="-34.085714784447,26.2294124242755" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.085714784447,26.2294124242755"
+                    Point2="-38.085714784447,26.2294124242755"
+                    Point3="-38.085714784447,30.2294124242755" />
+                  <mssgle:LineSegment
+                    End="-38.085714784447,44.958824848551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SPI_yeild">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\SPI_yeild\Source ADO NET"
+          TopLeft="17.1428574347982,88.2588246662312" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\SPI_yeild\Destination OLE DB"
+          TopLeft="550.714295092894,171.294120049394" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\SPI_yeild\Conversion de données"
+          TopLeft="272.857147503872,81.8235305593088" />
+        <EdgeLayout
+          Id="Package\SPI_yeild.Paths[Sortie de source ADO NET]"
+          TopLeft="174.742857434798,105.84117761277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.1142900690738,0"
+              Start="0,0"
+              End="90.6142900690738,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="90.6142900690738,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SPI_yeild.Paths[Sortie de conversion de données]"
+          TopLeft="366.857147503872,123.423530559309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="269.057147589022,47.8705894900854"
+              Start="0,0"
+              End="269.057147589022,40.3705894900854">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9352947450427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9352947450427"
+                    Point2="0,23.9352947450427"
+                    Point3="4,23.9352947450427" />
+                  <mssgle:LineSegment
+                    End="265.057147589022,23.9352947450427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="265.057147589022,23.9352947450427"
+                    Point2="269.057147589022,23.9352947450427"
+                    Point3="269.057147589022,27.9352947450427" />
+                  <mssgle:LineSegment
+                    End="269.057147589022,40.3705894900854" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SPI_yeild\Source ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SPI_yeild\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

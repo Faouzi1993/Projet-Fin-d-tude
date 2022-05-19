@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1525
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SA_SAGEM", "SAGEM\SA_SAGEM.dtproj", "{929B2852-8476-4ADD-8C94-127C5D400434}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DW_SAGEM", "DW_SAGEM\DW_SAGEM.dtproj", "{544C46B7-C8FA-400D-A377-5AE449AC3333}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{929B2852-8476-4ADD-8C94-127C5D400434}.Development|Default.ActiveCfg = Development
+		{929B2852-8476-4ADD-8C94-127C5D400434}.Development|Default.Build.0 = Development
+		{544C46B7-C8FA-400D-A377-5AE449AC3333}.Development|Default.ActiveCfg = Development
+		{544C46B7-C8FA-400D-A377-5AE449AC3333}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F166C83E-14D5-4556-83EF-81A2726761D7}
+	EndGlobalSection
+EndGlobal
